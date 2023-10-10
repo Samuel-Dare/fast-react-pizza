@@ -7,9 +7,11 @@ import {
   increaseItemQuantity,
 } from './cartSlice';
 
-export default function UpdateCartItemQuantity({ pizzaId }) {
+export default function UpdateCartItemQuantity({
+  pizzaId,
+  currentCartItemQuantity,
+}) {
   const dispatch = useDispatch();
-  //   const currentCartItemQuantity = useSelector(getCurrentCartItemById(pizzaId));
 
   return (
     <div className="flex items-center gap-1 md:gap-3">
@@ -19,6 +21,7 @@ export default function UpdateCartItemQuantity({ pizzaId }) {
       >
         -
       </Button>
+      <span className="text-sm font-medium">{currentCartItemQuantity}</span>
       <Button
         type="round"
         onClick={() => dispatch(increaseItemQuantity(pizzaId))}
